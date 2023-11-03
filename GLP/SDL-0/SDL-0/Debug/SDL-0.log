@@ -1,2 +1,5 @@
-﻿  Main.cpp
+﻿  PongBall.cpp
+C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.h(7,17): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.h(7,39): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.cpp(10,49): warning C4244: 'argument': conversion from 'Uint32' to 'GLfloat', possible loss of data
   SDL-0.vcxproj -> C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\Debug\SDL-0.exe

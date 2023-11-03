@@ -24,6 +24,9 @@
     <ClCompile Include="Drawable.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="PongBall.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="v_simple.shader">
@@ -32,9 +35,13 @@
     <None Include="f_simple.shader">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="f_rainbow.shader" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Drawable.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="PongBall.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
