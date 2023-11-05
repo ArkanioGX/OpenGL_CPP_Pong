@@ -9,7 +9,7 @@ Drawable::Drawable() {
 					0.0f,0.2f,0.0f};
 	std::copy(begin(v), end(v), begin(vertices));
 	
-	setupShaderProgram("v_simple.shader", "f_rainbow.shader");
+	setupShaderProgram("v_simple.shader", "f_simple.shader");
 }
 
 Drawable::Drawable(float v[]) {

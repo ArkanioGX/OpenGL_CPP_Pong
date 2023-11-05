@@ -4,7 +4,7 @@ class PongBall
 {
 	Drawable draw;
 	float x, y;
-	float xspeed = 0.003; float yspeed = 0.01;
+	float xspeed = 0.02; float yspeed = 0.01;
 
 public:
 

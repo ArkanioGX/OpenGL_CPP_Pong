@@ -86,7 +86,6 @@
     <ClCompile Include="PongBall.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="f_rainbow.shader" />
     <None Include="f_simple.shader" />
     <None Include="v_simple.shader" />
   </ItemGroup>

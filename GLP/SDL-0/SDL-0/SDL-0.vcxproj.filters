@@ -35,7 +35,6 @@
     <None Include="f_simple.shader">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="f_rainbow.shader" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Drawable.h">

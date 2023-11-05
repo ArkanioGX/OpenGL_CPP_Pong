@@ -1,14 +1,11 @@
 #include "PongBall.h"
 
 void PongBall::update() {
-
 	x += xspeed;
-	cout << x << endl;
-	int vertexOffsetLocation = glGetUniformLocation(draw.getShaderProgram(), "time");
-	int vertexOffsetLocation2 = glGetUniformLocation(draw.getShaderProgram(), "resolution");
+	y += yspeed;
+	int vertexOffsetLocation = glGetUniformLocation(draw.getShaderProgram(), "offset");
 	glUseProgram(draw.getShaderProgram());
-	glUniform1f(vertexOffsetLocation,SDL_GetTicks()/100);
-	glUniform2f(vertexOffsetLocation2,500,500);
+	glUniform3f(vertexOffsetLocation,x,y,0);
 
 }
 
