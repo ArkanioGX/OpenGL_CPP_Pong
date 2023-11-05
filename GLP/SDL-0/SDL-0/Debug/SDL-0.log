@@ -1,8 +1,6 @@
-﻿  Main.cpp
-C:\dev\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.h(7,15): warning C4305: 'initialisation' : troncation de 'double' à 'float'
-C:\dev\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.h(7,36): warning C4305: 'initialisation' : troncation de 'double' à 'float'
-  PongBall.cpp
-C:\dev\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.h(7,15): warning C4305: 'initialisation' : troncation de 'double' à 'float'
-C:\dev\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.h(7,36): warning C4305: 'initialisation' : troncation de 'double' à 'float'
-  Génération de code en cours...
+﻿  PongBall.cpp
+C:\dev\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.cpp(16,6): warning C4838: la conversion de 'double' en 'float' requiert une conversion restrictive
+C:\dev\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.cpp(16,6): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+C:\dev\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.cpp(16,13): warning C4838: la conversion de 'double' en 'float' requiert une conversion restrictive
+C:\dev\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.cpp(16,13): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
   SDL-0.vcxproj -> C:\dev\OpenGL_CPP_Pong\GLP\SDL-0\Debug\SDL-0.exe
