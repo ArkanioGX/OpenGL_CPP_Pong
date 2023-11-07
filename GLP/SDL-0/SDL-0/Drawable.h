@@ -12,7 +12,9 @@ class Drawable
 {
 	static vector<Drawable*> drawableList;
 
-	float vertices[64];
+	float vertices[256];
+
+
 	
 	unsigned int vao, vbo, shProg;
 
@@ -23,9 +25,9 @@ class Drawable
 public:
 
 	Drawable();
-	Drawable(float v[]);
-	Drawable(float v[], std::string shV, std::string shF);
-	Drawable(float v[], unsigned int sh);
+	Drawable(vector<float> v);
+	Drawable(vector<float> v, std::string shV, std::string shF);
+	Drawable(vector<float> v, unsigned int sh);
 
 	void draw();
 

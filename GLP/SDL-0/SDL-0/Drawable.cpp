@@ -12,22 +12,25 @@ Drawable::Drawable() {
 	setupShaderProgram("v_simple.shader", "f_simple.shader");
 }
 
-Drawable::Drawable(float v[]) {
+Drawable::Drawable(vector<float> v) {
 	InsertDrawableInList(this);
-	std::copy(v, v + (sizeof(v)/sizeof(float)), begin(vertices));
+
+	std::copy(v.begin(), v.end(), vertices);
 
 	setupShaderProgram("v_simple.shader", "f_simple.shader");
 }
 
-Drawable::Drawable(float v[], string shV, string shF) {
+Drawable::Drawable(vector<float> v, string shV, string shF) {
 	InsertDrawableInList(this);
-	std::copy(v, v + (sizeof(v) / sizeof(float)), begin(vertices));
+	std::copy(v.begin(), v.end(), vertices);
 	setupShaderProgram(shV, shF);
 }
 
-Drawable::Drawable(float v[], unsigned int sh) {
+Drawable::Drawable(vector<float> v, unsigned int sh) {
 	InsertDrawableInList(this);
-	std::copy(v, v + (sizeof(v) / sizeof(float)), begin(vertices));
+	std::copy(v.begin(), v.end(), vertices);
+
+	shProg = sh;
 }
 
 void Drawable::InsertDrawableInList(Drawable* d) {
@@ -103,6 +106,7 @@ void Drawable::setupShaderProgram(string v, string f) {
 void Drawable::draw() {
 	glUseProgram(shProg);
 	glDrawArrays(GL_TRIANGLES, 0, sizeof(vertices) / 3);
+	
 }
 
 void Drawable::drawAll() {
