@@ -38,6 +38,12 @@
     <None Include="f_simple.shader">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="f_ball.shader">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="v_ball.shader">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Drawable.h">

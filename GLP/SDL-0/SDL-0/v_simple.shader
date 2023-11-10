@@ -1,10 +1,12 @@
 #version 330 core
 in vec3 pos;
-uniform vec2 objectPos;
-uniform vec2 objectSize;
+uniform vec3 objectPos;
+uniform vec3 objectSize;
 
 void main()
 {
-    gl_Position = vec4((pos*objectSize) + objectPos, 1.0);
+    vec3 posT = vec3(pos);
+    posT.x *= 0.75;
+    gl_Position = vec4((posT*objectSize) + objectPos, 1.0);
 }
 

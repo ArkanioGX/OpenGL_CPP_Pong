@@ -6,6 +6,7 @@ class PongBall
 	float x, y;
 	float xspeed ,yspeed;
 	float maxSpeed;
+	float sizeX,sizeY;
 public:
 
 	PongBall();

@@ -3,14 +3,21 @@
 void PongBall::update() {
 	x += xspeed;
 	y += yspeed;
-	int vertexOffsetLocation = glGetUniformLocation(draw->getShaderProgram(), "offset");
+	int vertexOffsetLocation = glGetUniformLocation(draw->getShaderProgram(), "objectPos");
 	glUseProgram(draw->getShaderProgram());
 	glUniform3f(vertexOffsetLocation,x,y,0);
 
+	if (x+sizeX > 1 || x-sizeX < -1) {
+		xspeed *= -1;
+	}
+
+	if (y+sizeY > 1 || y-sizeY < -1) {
+		yspeed *= -1;
+	}
 }
 
 PongBall::PongBall() {
-	float s = 0.5;
+	float s = 1;
 	vector<float> v = {
 		0,0,0,
 		float(cos(0))*s,float(sin(0))*s,0,
@@ -44,7 +51,15 @@ PongBall::PongBall() {
 		float(cos(5.49779))* s,float(sin(5.49779))* s,0,
 		float(cos(0)) * s,float(sin(0))* s,0
 	};
-	draw = new Drawable(v);
+	draw = new Drawable(v,"v_ball.shader", "f_ball.shader");
 	x = 0;
 	y = 0;
+	xspeed = 0.01;
+	yspeed = 0.005;
+	sizeX = 0.1*0.75;
+	sizeY = 0.1;
+
+	int vertexOffsetLocation = glGetUniformLocation(draw->getShaderProgram(), "objectSize");
+	glUseProgram(draw->getShaderProgram());
+	glUniform3f(vertexOffsetLocation, sizeX,sizeY, 1);
 }

@@ -1,2 +1,6 @@
 ﻿  PongBall.cpp
+C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.cpp(57,11): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.cpp(58,11): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.cpp(59,13): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.cpp(60,10): warning C4305: '=': truncation from 'double' to 'float'
   SDL-0.vcxproj -> C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\Debug\SDL-0.exe
