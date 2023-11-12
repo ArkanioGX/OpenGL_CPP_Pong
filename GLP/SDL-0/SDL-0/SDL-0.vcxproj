@@ -81,21 +81,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Drawable.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PongBall.cpp" />
     <ClCompile Include="PongBar.cpp" />
+    <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="f_ball.shader" />
+    <None Include="f_bar.shader" />
     <None Include="f_simple.shader" />
     <None Include="v_ball.shader" />
+    <None Include="v_bar.shader" />
     <None Include="v_simple.shader" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Drawable.h" />
+    <ClInclude Include="Rectangle.h" />
     <ClInclude Include="PongBall.h" />
     <ClInclude Include="PongBar.h" />
+    <ClInclude Include="Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

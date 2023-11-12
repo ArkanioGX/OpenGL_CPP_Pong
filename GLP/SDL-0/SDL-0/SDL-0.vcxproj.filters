@@ -21,13 +21,16 @@
     <ClCompile Include="Main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Drawable.cpp">
+    <ClCompile Include="Rectangle.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="PongBall.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="PongBar.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,15 +47,24 @@
     <None Include="v_ball.shader">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="f_bar.shader">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="v_bar.shader">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Drawable.h">
+    <ClInclude Include="Rectangle.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="PongBall.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="PongBar.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

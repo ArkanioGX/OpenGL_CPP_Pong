@@ -1,6 +1,5 @@
 ﻿  PongBall.cpp
-C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.cpp(57,11): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.cpp(58,11): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.cpp(59,13): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.cpp(60,10): warning C4305: '=': truncation from 'double' to 'float'
-  SDL-0.vcxproj -> C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\Debug\SDL-0.exe
+D:\Projects\ArtFX\Advanced-OpenGL-Starter-Project\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.cpp(13,13): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+D:\Projects\ArtFX\Advanced-OpenGL-Starter-Project\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.cpp(66,14): warning C4305: '=' : troncation de 'double' à 'float'
+D:\Projects\ArtFX\Advanced-OpenGL-Starter-Project\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\PongBall.cpp(67,10): warning C4305: '=' : troncation de 'double' à 'float'
+  SDL-0.vcxproj -> D:\Projects\ArtFX\Advanced-OpenGL-Starter-Project\OpenGL_CPP_Pong\GLP\SDL-0\Debug\SDL-0.exe

@@ -1,16 +1,27 @@
 #pragma once
-#include "Drawable.h"
+#include "Rectangle.h"
+#include "PongBar.h"
 class PongBall
 {
-	Drawable* draw;
+	Rectangle* draw;
 	float x, y;
 	float xspeed ,yspeed;
-	float maxSpeed;
 	float sizeX,sizeY;
+
+	PongBar* pIA;
+	PongBar* pPl;
+
+	bool getCollision(PongBar* pb);
+
 public:
 
 	PongBall();
 
-	void update();
+	void update(float dt);
+
+	float getY();
+
+	void setPlayer(PongBar* pbPl);
+	void setIA(PongBar* pbIA);
 };
 

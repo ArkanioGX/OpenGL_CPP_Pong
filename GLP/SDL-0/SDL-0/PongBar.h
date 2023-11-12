@@ -1,15 +1,24 @@
 #pragma once
-#include "Drawable.h"
+#include "Rectangle.h"
 class PongBar
 {
-	Drawable draw;
+	Rectangle* draw;
 	float x, y;
-	float ysize;
+	float sizeX;
+	float sizeY;
+	float speed;
+
+	int* dir;
 	
 public:
 
-	PongBar();
+	PongBar(float xP,float w, float h, int* d);
 
-	void update();
+	void update(float dt);
+
+	float getX();
+	float getY();
+	float getHeight();
+	float getWidth();
 };
 

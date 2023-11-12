@@ -1,65 +1,72 @@
 #include "PongBall.h"
 
-void PongBall::update() {
-	x += xspeed;
-	y += yspeed;
+void PongBall::update(float dt) {
+	x += xspeed * dt;
+	y += yspeed * dt;
 	int vertexOffsetLocation = glGetUniformLocation(draw->getShaderProgram(), "objectPos");
 	glUseProgram(draw->getShaderProgram());
 	glUniform3f(vertexOffsetLocation,x,y,0);
 
+	
+
 	if (x+sizeX > 1 || x-sizeX < -1) {
+		x = xspeed*0.3; //Reset
+		xspeed *= -1;
+		
+	}
+
+	if (y+sizeY > 1 || y < -1) {
+		yspeed *= -1;
+		y = fminf(1 - sizeY, fmaxf(y, -1 + sizeY));
+	}
+
+	if (getCollision(pPl)) {
+		x = pPl->getX() + pPl->getWidth() / 2 + sizeX / 2; //Reset
 		xspeed *= -1;
 	}
 
-	if (y+sizeY > 1 || y-sizeY < -1) {
-		yspeed *= -1;
+	if (getCollision(pIA)) {
+		x = pIA->getX() - pIA->getWidth() / 2 - sizeX; //Reset
+		xspeed *= -1;
 	}
 }
 
+float PongBall::getY()
+{
+	return y;
+}
+
+void PongBall::setPlayer(PongBar* pbPl)
+{
+	pPl = pbPl;
+}
+
+void PongBall::setIA(PongBar* pbIA)
+{
+	pIA = pbIA;
+}
+
+bool PongBall::getCollision(PongBar* pb)
+{
+	if (x + sizeX >= pb->getX() &&     // r1 right edge past r2 left
+		x <= pb->getX() + pb->getWidth() &&       // r1 left edge past r2 right
+		y + sizeY >= pb->getY() &&       // r1 top edge past r2 bottom
+		y <= pb->getY() + pb->getHeight()) {       // r1 bottom edge past r2 top
+		return true;
+	}
+	return false;
+}
+
 PongBall::PongBall() {
-	float s = 1;
-	vector<float> v = {
-		0,0,0,
-		float(cos(0))*s,float(sin(0))*s,0,
-		float(cos(0.785398))* s,float(sin(0.785398))* s,0,
-
-		0,0,0,
-		float(cos(0.785398))* s,float(sin(0.785398))* s,0,
-		float(cos(1.5708))* s,float(sin(1.5708))* s,0,
-
-		0,0,0,
-		float(cos(1.5708))* s,float(sin(1.5708))* s,0,
-		float(cos(2.35619))* s,float(sin(2.35619))* s,0,
-
-		0,0,0,
-		float(cos(2.35619))* s,float(sin(2.35619))* s,0,
-		float(cos(3.14159))* s,float(sin(3.14159))* s,0,
-
-		0,0,0,
-		float(cos(3.14159))* s,float(sin(3.14159))* s,0,
-		float(cos(3.92699))* s,float(sin(3.92699))* s,0,
-
-		0,0,0,
-		float(cos(3.92699))* s,float(sin(3.92699))* s,0,
-		float(cos(4.71239))* s,float(sin(4.71239))* s,0,
-
-		0,0,0,
-		float(cos(4.71239))* s,float(sin(4.71239))* s,0,
-		float(cos(5.49779))* s,float(sin(5.49779))* s,0,
-
-		0,0,0,
-		float(cos(5.49779))* s,float(sin(5.49779))* s,0,
-		float(cos(0)) * s,float(sin(0))* s,0
-	};
-	draw = new Drawable(v,"v_ball.shader", "f_ball.shader");
+	draw = new Rectangle("v_ball.shader", "f_ball.shader");
 	x = 0;
 	y = 0;
-	xspeed = 0.01;
-	yspeed = 0.005;
-	sizeX = 0.1*0.75;
-	sizeY = 0.1;
+	xspeed = 1;
+	yspeed = 0.75;
+	sizeX = 0.05*0.75;
+	sizeY = 0.05;
 
-	int vertexOffsetLocation = glGetUniformLocation(draw->getShaderProgram(), "objectSize");
+	int vertexSize = glGetUniformLocation(draw->getShaderProgram(), "objectSize");
 	glUseProgram(draw->getShaderProgram());
-	glUniform3f(vertexOffsetLocation, sizeX,sizeY, 1);
+	glUniform3f(vertexSize, sizeX,sizeY, 1);
 }
