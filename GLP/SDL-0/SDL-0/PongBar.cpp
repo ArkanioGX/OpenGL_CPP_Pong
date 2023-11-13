@@ -7,7 +7,7 @@ PongBar::PongBar(float xP, float w,float h, int* d):dir(d)
 	y = 0;
 	sizeY = h;
 	sizeX = w;
-	speed = 0.7;
+	speed = 0.75;
 	draw = new Rectangle("v_bar.shader", "f_bar.shader");
 
 	int vertexSize = glGetUniformLocation(draw->getShaderProgram(), "objectSize");

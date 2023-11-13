@@ -1,5 +1,8 @@
 #include "PongBall.h"
 
+# define M_PI          3.141592653589793238462643383279502884L /* pi */
+
+
 void PongBall::update(float dt) {
 	x += xspeed * dt;
 	y += yspeed * dt;
@@ -10,7 +13,7 @@ void PongBall::update(float dt) {
 	
 
 	if (x+sizeX > 1 || x-sizeX < -1) {
-		x = xspeed*0.3; //Reset
+		x = xspeed*0.3; //Reset Pos in center
 		xspeed *= -1;
 		
 	}
@@ -21,13 +24,21 @@ void PongBall::update(float dt) {
 	}
 
 	if (getCollision(pPl)) {
-		x = pPl->getX() + pPl->getWidth() / 2 + sizeX / 2; //Reset
-		xspeed *= -1;
+		x = pPl->getX() + pPl->getWidth() / 2 + sizeX / 2; //Reset Pos
+
+		float barBallRatio = fabsf(y - pPl->getY()) / pPl->getHeight();
+		int Degree = -70 + (barBallRatio * 130);
+		xspeed = cos(Degree * M_PI / 180);
+		yspeed = sin(Degree * M_PI / 180);
 	}
 
 	if (getCollision(pIA)) {
 		x = pIA->getX() - pIA->getWidth() / 2 - sizeX; //Reset
-		xspeed *= -1;
+		
+		float barBallRatio = fabsf(y - pIA->getY()) / pIA->getHeight();
+		int Degree = 115 + ((1-barBallRatio) * 130);
+		xspeed = cos(Degree * M_PI / 180);
+		yspeed = sin(Degree * M_PI / 180);
 	}
 }
 
@@ -65,6 +76,7 @@ PongBall::PongBall() {
 	yspeed = 0.75;
 	sizeX = 0.05*0.75;
 	sizeY = 0.05;
+	maxSpeed = 1;
 
 	int vertexSize = glGetUniformLocation(draw->getShaderProgram(), "objectSize");
 	glUseProgram(draw->getShaderProgram());

@@ -55,6 +55,11 @@ int main(int argc, char* argv[])
 	Timer timer;
 	float dt = 0;
 
+	bool dPressed = false;
+	bool uPressed = false;
+
+	bool IAMoving = true;
+
 	while (isRunning) {
 		float dt(timer.computeDelayTime() / 1000.f);
 		// Inputs
@@ -70,28 +75,50 @@ int main(int argc, char* argv[])
 			case SDL_KEYDOWN:
 				if (event.key.keysym.sym == SDLK_UP) {
 					// Up Arrow
-					dP = 1;
+					uPressed = true;
 				}
 				if (event.key.keysym.sym == SDLK_DOWN) {
 					// Down Arrow
-					dP = -1;
+					dPressed = true;
 				}
 				break;
+			case SDL_KEYUP:
+				if (event.key.keysym.sym == SDLK_UP) {
+					// Up Arrow
+					uPressed = false;
+				}
+				if (event.key.keysym.sym == SDLK_DOWN) {
+					// Down Arrow
+					dPressed = false;
+				}
 			}
 		}
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear the screen
 		
-		//"IA"
-		if (p->getY() < bIA ->getY()) {
-			dIA = -1;
+		//IA Controls
+		{
+			if (IAMoving) {
+				if (p->getY() < (bIA->getY()+bIA->getHeight()/2)) {
+					dIA = -1;
+				}
+				else if (p->getY() > (bIA->getY() + bIA->getHeight() / 2)) {
+					dIA = 1;
+				}
+
+				if (fabsf(p->getY() - (bIA->getY() + bIA->getHeight() / 2)) < 0.1) {
+					IAMoving = false;
+					dIA = 0;
+				}
+			}
+			else {
+				if (fabsf(p->getY() - (bIA->getY() + bIA->getHeight() / 2)) > 0.25) {
+					IAMoving = true;
+				}
+			}
 		}
-		else if (p->getY() > bIA->getY()) {
-			dIA = 1;
-		}
-		else {
-			dIA = 0;
-		}
+
+		dP = uPressed - dPressed;
 
 		p->update(dt);
 		bIA->update(dt);

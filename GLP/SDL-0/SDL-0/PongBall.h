@@ -1,11 +1,12 @@
 #pragma once
 #include "Rectangle.h"
 #include "PongBar.h"
+#include <random>
 class PongBall
 {
 	Rectangle* draw;
 	float x, y;
-	float xspeed ,yspeed;
+	float maxSpeed, xspeed ,yspeed;
 	float sizeX,sizeY;
 
 	PongBar* pIA;
