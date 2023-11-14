@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
 					dIA = 1;
 				}
 
-				if (fabsf(p->getY() - (bIA->getY() + bIA->getHeight() / 2)) < 0.1) {
+				if (fabsf(p->getY() - (bIA->getY() + bIA->getHeight() / 2)) < 0.15) {
 					IAMoving = false;
 					dIA = 0;
 				}
@@ -129,6 +129,8 @@ int main(int argc, char* argv[])
 		Rectangle::drawAll();
 		
 		SDL_GL_SwapWindow(Window); // Swapbuffer
+
+		timer.delayTime();
 	}
 
 	std::cin.get();

@@ -73,7 +73,7 @@ PongBall::PongBall() {
 	x = 0;
 	y = 0;
 	xspeed = 1;
-	yspeed = 0.75;
+	yspeed = 0;
 	sizeX = 0.05*0.75;
 	sizeY = 0.05;
 	maxSpeed = 1;

@@ -5,4 +5,6 @@ C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\Main.c
 C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\Main.cpp(48,40): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\Main.cpp(48,34): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\SDL-0\Main.cpp(48,29): warning C4305: 'argument': truncation from 'double' to 'float'
+  Timer.cpp
+  Generating Code...
   SDL-0.vcxproj -> C:\Users\mollet.clarence\Documents\GitHub\OpenGL_CPP_Pong\GLP\SDL-0\Debug\SDL-0.exe
