@@ -37,17 +37,17 @@ int main(int argc, char* argv[])
 		cout << "Glew initialized successfully\n";
 	}
 
-	PongBall* p = new PongBall();
+	PongBall* p = new PongBall(); // Initialize the pong ball
 	
-	int dP = 0;
+	int dP = 0; //Initialize a variable that will determine if the player will go up, down or not move at all
 
-	int dIA = 0;
+	int dIA = 0; //Initialize a variable that will determine if the IA will go up, down or not move at all
 	
-	PongBar* bIA = new PongBar(0.8,0.02,0.4,&dIA);
+	PongBar* bIA = new PongBar(0.8,0.02,0.4,&dIA); //Create the IA bar
 
-	PongBar* bPl= new PongBar(-0.8, 0.02, 0.4, &dP);
+	PongBar* bPl= new PongBar(-0.8, 0.02, 0.4, &dP); //Create the player bar
 
-	p->setIA(bIA);
+	p->setIA(bIA); // Communicate to the ball the IA and the Player
 	p->setPlayer(bPl);
 
 	bool isRunning = true;
@@ -55,7 +55,7 @@ int main(int argc, char* argv[])
 	Timer timer;
 	float dt = 0;
 
-	bool dPressed = false;
+	bool dPressed = false; //Input bool for the UP Arrow and Down Arrow
 	bool uPressed = false;
 
 	bool IAMoving = true;
@@ -72,7 +72,7 @@ int main(int argc, char* argv[])
 				break;
 				/* Look for a keypress */
 
-			case SDL_KEYDOWN:
+			case SDL_KEYDOWN: //When the up and down key are pressed
 				if (event.key.keysym.sym == SDLK_UP) {
 					// Up Arrow
 					uPressed = true;
@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
 					dPressed = true;
 				}
 				break;
-			case SDL_KEYUP:
+			case SDL_KEYUP: //When the up and down key are released
 				if (event.key.keysym.sym == SDLK_UP) {
 					// Up Arrow
 					uPressed = false;
@@ -117,15 +117,16 @@ int main(int argc, char* argv[])
 				}
 			}
 		}
-
+		//Player Controls based on the input
 		dP = uPressed - dPressed;
 
+		//Update
 		p->update(dt);
 		bIA->update(dt);
 		bPl->update(dt);
 
 		
-
+		//Draw
 		Rectangle::drawAll();
 		
 		SDL_GL_SwapWindow(Window); // Swapbuffer

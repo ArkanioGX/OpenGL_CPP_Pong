@@ -18,12 +18,12 @@ void PongBall::update(float dt) {
 		
 	}
 
-	if (y+sizeY > 1 || y < -1) {
+	if (y+sizeY > 1 || y < -1) { //Bounce on the Y limit of the screen
 		yspeed *= -1;
 		y = fminf(1 - sizeY, fmaxf(y, -1 + sizeY));
 	}
 
-	if (getCollision(pPl)) {
+	if (getCollision(pPl)) { //Checks the collision with the player bar
 		x = pPl->getX() + pPl->getWidth() / 2 + sizeX / 2; //Reset Pos
 
 		float barBallRatio = fabsf(y - pPl->getY()) / pPl->getHeight();
@@ -32,7 +32,7 @@ void PongBall::update(float dt) {
 		yspeed = sin(Degree * M_PI / 180);
 	}
 
-	if (getCollision(pIA)) {
+	if (getCollision(pIA)) { //Checks collsion with the IA Bar
 		x = pIA->getX() - pIA->getWidth() / 2 - sizeX; //Reset
 		
 		float barBallRatio = fabsf(y - pIA->getY()) / pIA->getHeight();
@@ -57,15 +57,12 @@ void PongBall::setIA(PongBar* pbIA)
 	pIA = pbIA;
 }
 
-bool PongBall::getCollision(PongBar* pb)
+bool PongBall::getCollision(PongBar* pb) //Check for collsion with pong bar
 {
-	if (x + sizeX >= pb->getX() &&     // r1 right edge past r2 left
-		x <= pb->getX() + pb->getWidth() &&       // r1 left edge past r2 right
-		y + sizeY >= pb->getY() &&       // r1 top edge past r2 bottom
-		y <= pb->getY() + pb->getHeight()) {       // r1 bottom edge past r2 top
-		return true;
-	}
-	return false;
+	return (x + sizeX >= pb->getX() &&
+		x <= pb->getX() + pb->getWidth() &&
+		y + sizeY >= pb->getY() &&
+		y <= pb->getY() + pb->getHeight());
 }
 
 PongBall::PongBall() {
