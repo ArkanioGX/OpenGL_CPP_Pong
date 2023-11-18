@@ -1,0 +1,10 @@
+Controles :
+Flèche HAUT : Monter la barre
+Flèche BAS : Descendre la barre
+
+Info:
+Barre Gauche : Joueur
+Barre Droite : IA
+
+La balle partira plus haut si elle touche les bords de la barre
+Pas de système de score
